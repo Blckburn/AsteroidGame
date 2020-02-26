@@ -40,7 +40,7 @@ namespace TestConsole
             /*var space_ship = SpaceShip(new Vector2D(5, 7));*/
 
 
-
+            /*
             var v1 = new Vector2D(1, 8);
             var v2 = v1;
             v1.X = 7;
@@ -51,10 +51,35 @@ namespace TestConsole
 
             var v5 = v4 + 7;
             var v6 = -v5;
+            */
+            var printer = new Printer();
 
+            printer.Print("Hello, world!");
 
+            printer = new PrefixPrinter(">>>>>>>");
 
             Console.ReadLine();
+
+        }
+
+        class Printer
+        {
+            public virtual void Print(string str)
+            {
+                Console.WriteLine(str);
+            }
+
+        }
+
+        class PrefixPrinter : Printer
+        {
+            private string _Prefix;
+
+            public PrefixPrinter(string Prefix) => _Prefix = Prefix;
+            public override void Print(string str)
+            {
+                Console.WriteLine("{0}{1}", _Prefix, str);
+            }
 
         }
     }
