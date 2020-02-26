@@ -10,7 +10,7 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Gamer gamer = new Gamer("Игрок 1", new DateTime(1983, 12, 5, 12, 23, 17));
+            /*Gamer gamer = new Gamer("Игрок 1", new DateTime(1983, 12, 5, 12, 23, 17));
 
             Gamer[] gamers = new Gamer[100];
             for (var i = 0; i < gamers.Length; i++)
@@ -35,7 +35,27 @@ namespace TestConsole
 
             Console.WriteLine("Игрок {0}", gamer.Name);
 
+            Console.ReadLine();*/
+
+            /*var space_ship = SpaceShip(new Vector2D(5, 7));*/
+
+
+
+            var v1 = new Vector2D(1, 8);
+            var v2 = v1;
+            v1.X = 7;
+            v2.Y = -14;
+
+            var v3 = v1 + v2;
+            var v4 = v2 - v1;
+
+            var v5 = v4 + 7;
+            var v6 = -v5;
+
+
+
             Console.ReadLine();
+
         }
     }
 }
