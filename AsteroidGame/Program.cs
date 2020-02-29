@@ -23,10 +23,14 @@ namespace AsteroidGame
 
             form.Show();
 
+            
+
             Game.Initialize(form);
+            Game.Load();
             Game.Draw();
 
             Application.Run(form);
         }
+
     }
 }
