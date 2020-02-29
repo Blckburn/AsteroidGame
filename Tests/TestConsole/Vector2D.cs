@@ -19,6 +19,23 @@ namespace TestConsole
 
         }
 
+
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Vector2D)
+            {
+                return ((Vector2D)obj).X == X && ((Vector2D)obj).Y == Y;
+            }
+
+            return false;
+        }
+
+
         public static Vector2D operator +(Vector2D a, Vector2D b)
         {
             return new Vector2D(a.X + b.X, a.Y + b.Y);
