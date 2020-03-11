@@ -20,11 +20,13 @@ namespace AsteroidGame.VisualObjects
         {
             g.FillEllipse(Brushes.Red, new Rectangle(_Position, _Size));
             g.DrawEllipse(Pens.White, new Rectangle(_Position, _Size));
+            //g.FillEllipse(Brushes.Red, _Position.X, _Position.Y, _Size.Width, _Size.Height);
+            //g.DrawEllipse(Pens.White, _Position.X, _Position.Y, _Size.Width, _Size.Height);
         }
 
         public override void Update()
         {
-            _Position = new Point(_Position.X + 3, 0);
+            _Position = new Point(_Position.X + 3, _Position.Y);
         }
     }
 }
