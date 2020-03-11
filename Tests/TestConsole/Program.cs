@@ -18,6 +18,10 @@ namespace TestConsole
             Logger logger = new TraceLogger();
             Trace.Listeners.Add(new TextWriterTraceListener("trace.log"));
 
+            var critical_logger = new ListLogger();
+            var student_logger = new Student { Name = "Иванов" };
+            DoSomeCriticalWork(student_logger);
+
             logger.LogInformation("Start program");
 
             for (var i = 0; i < 10; i++)
@@ -31,6 +35,41 @@ namespace TestConsole
 
             Console.ReadLine();
         }
+
+        public static void DoSomeCriticalWork(ILogger log)
+        {
+            for (var i = 0; i < 10; i++)
+            {
+                log.LogInformation($"Do some very important work {i + 1}");
+            }
+
+
+        }
+
     }
-   
+
+    public class Student : ILogger
+    {
+
+        private List<string> _Messages = new List<string>();
+        public string Name { get; set; }
+
+        public List<int> Ratings { get; set; } = new List<int>();
+
+        public void Log(string Message)
+        {
+            Ratings.Add(Message.Length);
+            _Messages.Add(Message);
+        }
+
+
+        public void LogInformation(string Message) { Log("Info:" + Message); }
+
+
+        public void LogWarning(string Message) { Log("Warning:" + Message); }
+
+        public void LogError(string Message) { Log("Error:" + Message); }
+    }
+
+
 }
