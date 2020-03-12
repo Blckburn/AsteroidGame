@@ -37,6 +37,7 @@ namespace TestConsole
             var student_logger = new Student { Name = "Иванов" };
             var student_clone = (Student)student_logger.Clone();
 
+
             ((ILogger)student_logger).LogError("Error!");
             DoSomeCriticalWork(student_logger);
 
